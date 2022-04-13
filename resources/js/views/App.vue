@@ -1,16 +1,22 @@
 <template>
 
     <div id="first-view">
-      <h1>Work in Progress</h1>
-      <h2>Sito under construction...</h2>
+
+      <Main></Main>
+
     </div>
 
 </template>
 
 <script>
 
+import Main from '../components/Main.vue';
+
 export default {
   name: 'App',
+  components: {
+    Main,
+  }
 }
 
 </script>

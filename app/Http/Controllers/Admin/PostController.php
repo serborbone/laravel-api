@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\Category;
 use App\Tag;
+use Carbon\Carbon;
 use Illuminate\Support\Str;
 
 class PostController extends Controller
@@ -91,7 +92,17 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        return view('admin.post.show', compact('post'));
+        //ottengo data e ora attuale
+        $now = Carbon::now();
+        
+        //ottengo la data di creazione del post
+        $dateTimePost = Carbon::create($post->created_at);
+
+        //ritorna la differenza tra la data attuale e la data di creazione del post in giorni
+        $diffInDays = $now->diffInDays($dateTimePost);
+        
+
+        return view('admin.post.show', compact('post', 'diffInDays'));
     }
 
     /**

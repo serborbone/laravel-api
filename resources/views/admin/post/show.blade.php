@@ -8,6 +8,9 @@
     <div>Testo: {{$post->content}}</div>
     <div>Categoria: {{isset($post->category->name) ? $post->category->name: 'N.D.'}}</div>
     <div>Slug: {{$post->slug}}</div>
+
+    {{-- quanti giorni fa è stato creto il post --}}
+    <div>Post creato: {{$diffInDays}} giorni fa</div>
   
     @foreach ($post->tags as $tag)
         <span class="badge badge-primary p-2 mt-2">{{$tag->name}}</span>
